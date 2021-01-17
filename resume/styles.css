@@ -1,0 +1,33 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+.border {
+  width: 800px;
+  height: 1000px;
+  border: 1px solid black;
+  margin: 0px auto;
+}
+
+p {
+  margin-left: 4.5em;
+}
+
+.grayBor {
+  width: 100;
+  padding: 4px;
+  margin: 0em 4em 0em 4em;
+  background-color: rgb(200, 200, 200);
+}
+.line {
+  margin: 0.5em 7em 0em 4em;
+}
+
+table {
+  width: 560px;
+}
+th {
+  text-align: left;
+}
