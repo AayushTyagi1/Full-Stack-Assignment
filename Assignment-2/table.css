@@ -1,0 +1,17 @@
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+caption {
+  border: 1px solid black;
+  border-collapse: collapse;
+  color: #fc3004;
+}
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  color: #041efc;
+}
