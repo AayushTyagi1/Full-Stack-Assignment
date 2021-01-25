@@ -96,7 +96,6 @@
 				echo '<span class="Error">Please input your Information agian</span>';
 			}
 		}
-	}
 	function Test_user_input($Data)
 	{
 		return $Data;
