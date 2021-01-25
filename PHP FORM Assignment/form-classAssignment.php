@@ -65,12 +65,12 @@
 		else
 		{
 			$Interests=Test_user_input($_POST["Interests"]);
-			$count=0;
-			for ($i = 0; $i < strlen($Interests); $i++)
-			if ($Interest[$i] == ',')
-				 $count=$count + 1;
-			if($count < 2 or $count > 4)
-			   $Interests_error="Min 3 Max 5 interest";
+			   $no_checked = count($_POST['Interests']);
+              if($no_checked<2)
+			     $Interests_error = "Select at least two options";
+			 if($no_checked>5)
+			 $Interests_error = "Select at most 5 options";
+    }
 		}
 
 		if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Contact"]) && !empty($_POST["City"]) && !empty($_POST["Course"]) && !empty($_POST["Interest"]) ){
@@ -110,7 +110,7 @@
 		<title>Form PHP to table</title>
 	</head>
 	<body> 
-		<h2 class="title">Form wuth PHP</h2>
+		<h2 class="title">Form with PHP</h2>
 		<form  action="Form_validation_project.php" method="post" id="form"> 
 			<legend>* Please Fill Out the following Fields.</legend>            
 			<fieldset>
@@ -134,8 +134,18 @@
 				<input class="input" type="text" Name="Course" value="" placeholder="Course">*
 				<span class="Error"><?php echo $Course_error; ?></span>
 				<br>
-				Interests: separated by comma<br>
-				<input class="input" type="text" Name="Course" value="" placeholder="Interests">*
+				Interests<br>
+				<input type="checkbox" id="intetests" name="interests" value="coding">
+                        <label for="int1"> CODING</label>
+                        <input type="checkbox" id="int1" name="int1" value="reading">
+                        <label for="int1"> DEVELOPMENT</label>
+                        <input type="checkbox" id="int1" name="int1" value="swimming">
+                        <label for="int1"> DATA SCIENCE/label>
+                        <input type="checkbox" id="int1" name="int1" value="playng">
+						<label for="int1"> Machine Learning</label><br>
+						<input type="checkbox" id="int1" name="int1" value="playng">
+						<label for="int1"> Problem Solving</label><br>
+
 				<span class="Error"><?php echo $Interests_error; ?></span>
 				<br>
 				<br>
