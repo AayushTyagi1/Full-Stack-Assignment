@@ -36,7 +36,7 @@
 		else
 		{
 			$Contact=Test_user_input($_POST["Contact"]);
-			if(stlen($Contact)!=10)
+			if(strlen($Contact)!=10)
 			$Contact_error="Contact must be of 10 length";
 		}
 
@@ -73,8 +73,8 @@
     }
 		}
 
-		if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Contact"]) && !empty($_POST["City"]) && !empty($_POST["Course"]) && !empty($_POST["Interest"]) ){
-			if(empty($Name_error) && empty($Contact_error) && empty($Email_error) && empty($City_error)&& empty($Course_error)&& empty($Interests_error)){
+		if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Contact"]) && !empty($_POST["City"]) && !empty($_POST["Course"]) && !empty($_POST["interests"]) ){
+			if(empty($Name_error) && empty($Contact_error) && empty($Email_error) && empty($City_error)&& empty($Course_error)){
 				echo '<span style="color:#FFF;">'."<h2>Your Information</h2>".'</span>';
 				echo '<span style="color:#FFF;">'."<table>
 				<tr>
@@ -82,16 +82,18 @@
 				<td>Email</td>
 				<td>Contact</td>
 				<td>City</td>
-				<td>Interest</td>
 				</tr>
 				<tr>
 				<td>{$_POST["Name"]}</td>
 				<td>{$_POST["Email"]}</td>
 				<td>{$_POST["Contact"]}</td>
 				<td>{$_POST["City"]}</td>
-				<td>{$_POST["Interest"]}</td>
 				</tr></table>".'</span>';
+				echo '<span>'.'Interests'."<br/>".'</span>';
+				foreach($_POST['interests'] as $checked){
+                    echo $checked."</br>";
 			}
+		}
 			else{
 				echo '<span class="Error">Please input your Information agian</span>';
 			}
@@ -102,6 +104,7 @@
 	}
 
 	?>
+
 
 	<!DOCTYPE html>
 	<html>
@@ -150,6 +153,7 @@
 				<br>
 				<input type="Submit" Name="Submit" value="Submit Your Information"><br>
 			</fieldset><br>
+			
 		</form>     
 	</body>
 	</html>
