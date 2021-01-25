@@ -107,10 +107,10 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>Form PHP to table</title>
+		<title>Form Assignment</title>
 	</head>
 	<body> 
-		<h2 class="title">Form with PHP</h2>
+		<h2 class="title">Form PHP</h2>
 		<form  action="Form_validation_project.php" method="post" id="form"> 
 			<legend>* Please Fill Out the following Fields.</legend>            
 			<fieldset>
@@ -135,16 +135,16 @@
 				<span class="Error"><?php echo $Course_error; ?></span>
 				<br>
 				Interests<br>
-				<input type="checkbox" id="intetests" name="interests" value="coding">
-                        <label for="int1"> CODING</label>
-                        <input type="checkbox" id="int1" name="int1" value="reading">
-                        <label for="int1"> DEVELOPMENT</label>
-                        <input type="checkbox" id="int1" name="int1" value="swimming">
-                        <label for="int1"> DATA SCIENCE/label>
-                        <input type="checkbox" id="int1" name="int1" value="playng">
-						<label for="int1"> Machine Learning</label><br>
-						<input type="checkbox" id="int1" name="int1" value="playng">
-						<label for="int1"> Problem Solving</label><br>
+				<input type="checkbox" id="intetests" name="interests[]" value="coding">
+                        <label for="intetests"> CODING</label>
+                        <input type="checkbox" id="intetests" name="interests[]" value="development">
+                        <label for="intetests"> DEVELOPMENT</label>
+                        <input type="checkbox" id="intetests" name="interests[]" value="data science">
+                        <label for="intetests"> DATA SCIENCE/label>
+                        <input type="checkbox" id="intetests" name="interests[]" value="ml">
+						<label for="intetests"> Machine Learning</label><br>
+						<input type="checkbox" id="intetests" name="interests[]" value="problem solving">
+						<label for="intetests"> Problem Solving</label><br>
 
 				<span class="Error"><?php echo $Interests_error; ?></span>
 				<br>
