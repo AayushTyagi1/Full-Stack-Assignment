@@ -76,13 +76,21 @@
 		if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Contact"]) && !empty($_POST["City"]) && !empty($_POST["Course"]) && !empty($_POST["Interest"]) ){
 			if(empty($Name_error) && empty($Contact_error) && empty($Email_error) && empty($City_error)&& empty($Course_error)&& empty($Interests_error)){
 				echo '<span style="color:#FFF;">'."<h2>Your Information</h2>".'</span>';
-				echo '<span style="color:#FFF;">'."Name: {$_POST["Name"]}".'<br></span>';
-				echo '<span style="color:#FFF;">'."Email: {$_POST["Email"]}".'.<br></span>';
-				echo '<span style="color:#FFF;">'."Gender: {$_POST["Contact"]}.".'<br></span>';
-				echo '<span style="color:#FFF;">'."Website: {$_POST["City"]}".'<br></span>';
-				echo '<span style="color:#FFF;">'."Website: {$_POST["Course"]}".'<br></span>';
-
-				echo '<span style="color:#FFF;text-align:center;">'."Comment: {$_POST["Comment"]}".'<br></div></span>';
+				echo '<span style="color:#FFF;">'."<table>
+				<tr>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Contact</td>
+				<td>City</td>
+				<td>Interest</td>
+				</tr>
+				<tr>
+				<td>{$_POST["Name"]}</td>
+				<td>{$_POST["Email"]}</td>
+				<td>{$_POST["Contact"]}</td>
+				<td>{$_POST["City"]}</td>
+				<td>{$_POST["Interest"]}</td>
+				</tr></table>".'</span>';
 			}
 			else{
 				echo '<span class="Error">Please input your Information agian</span>';
