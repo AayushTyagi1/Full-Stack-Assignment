@@ -1,0 +1,21 @@
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 30px;
+  text-align: center;
+}
+
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  border-style: dotted;
+}
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  color: #041efc;
+  border-style: dotted;
+}

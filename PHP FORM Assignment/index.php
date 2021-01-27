@@ -58,14 +58,14 @@
 			$Course=Test_user_input($_POST["Course"]);
 		}
 
-		if(empty($_POST["Interests"]))
+		if(empty($_POST["interests"]))
 		{
 			$Interests_error="Interests are required";
 		}
 		else
 		{
-			$Interests=Test_user_input($_POST["Interests"]);
-			   $no_checked = count($_POST['Interests']);
+			$Interests=Test_user_input($_POST["interests"]);
+			   $no_checked = count($_POST['interests']);
               if($no_checked<2)
 			     $Interests_error = "Select at least two options";
 			 if($no_checked>5)
@@ -74,30 +74,37 @@
 		}
 
 		if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Contact"]) && !empty($_POST["City"]) && !empty($_POST["Course"]) && !empty($_POST["interests"]) ){
-			if(empty($Name_error) && empty($Contact_error) && empty($Email_error) && empty($City_error)&& empty($Course_error)){
-				echo '<span style="color:#FFF;">'."<h2>Your Information</h2>".'</span>';
-				echo '<span style="color:#FFF;">'."<table>
-				<tr>
-				<td>Name</td>
-				<td>Email</td>
-				<td>Contact</td>
-				<td>City</td>
-				</tr>
-				<tr>
-				<td>{$_POST["Name"]}</td>
-				<td>{$_POST["Email"]}</td>
-				<td>{$_POST["Contact"]}</td>
-				<td>{$_POST["City"]}</td>
-				</tr></table>".'</span>';
-				echo '<span>'.'Interests'."<br/>".'</span>';
-				foreach($_POST['interests'] as $checked){
-                    echo $checked."</br>";
+			if(empty($Name_error) && empty($Contact_error) && empty($Email_error) && empty($City_error)&& empty($Course_error) && empty($Interests_error)){
+				
+        echo "<table>
+
+            <tr>
+            <td colspan='5'>Your Information</td>
+              </tr>
+            <tr>
+            <th>Name</th>
+			<th>Email</th>
+			<th>Contact</th>
+			<th>City</th>
+			<th>Interests</th>
+
+            </tr>";
+
+              echo "<tr>";
+              echo "<td>" . $_POST["Name"] . "</td>";
+              echo "<td>" . $_POST["Email"] . "</td>";
+              echo "<td>" . $_POST["Contact"] . "</td>";
+              echo "<td>" . $_POST["City"] . "</td>";
+              echo "<td>"; foreach($_POST['interests'] as $checked){
+                    echo $checked."</br>";} echo "</td>";
+    echo "</table>";
+	
 			}
 		}
 			else{
 				echo '<span class="Error">Please input your Information agian</span>';
 			}
-		}
+		
 	function Test_user_input($Data)
 	{
 		return $Data;
@@ -110,10 +117,11 @@
 	<html>
 	<head>
 		<title>Form Assignment</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body> 
 		<h2 class="title">Form PHP</h2>
-		<form  action="form-classAssignment.php" method="post" id="form"> 
+		<form  action="index.php" method="post" id="form"> 
 			<legend>* Please Fill Out the following Fields.</legend>            
 			<fieldset>
 				Name:<br>
@@ -137,7 +145,7 @@
 				<span class="Error"><?php echo $Course_error; ?></span>
 				<br>
 				Interests<br>
-				<input type="checkbox" id="intetests" name="interests[]" value="coding">
+				<input type="checkbox" id="interests" name="interests[]" value="coding">
                         <label for="intetests"> CODING</label>
                         <input type="checkbox" id="intetests" name="interests[]" value="development">
                         <label for="intetests"> DEVELOPMENT</label>
