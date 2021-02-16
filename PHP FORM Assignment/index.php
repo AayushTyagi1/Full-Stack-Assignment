@@ -148,7 +148,7 @@
                         <label for="intetests"> DATA SCIENCE</label>
                         <input type="checkbox"  name="interests[]" value="ml">
 						<label for="intetests"> Machine Learning</label><br>
-						<input type="checkbox" ] name="interests[]" value="problem solving">
+						<input type="checkbox" name="interests[]" value="problem solving">
 						<label for="intetests"> Problem Solving</label><br>
 
 				<span class="Error"><?php echo $Interests_error; ?></span>
