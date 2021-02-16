@@ -22,8 +22,8 @@ if(isset($_POST['submit'])){
     <form method="post">
     USERNAME <input type="text" name="username" placeholder="Enter Your Username" required> <br>
     E-MAIL <input type="email" name="email" placeholder="Enter Your E-mail" required> <br>
-    Gender <br> Male <input type="radio" name="gender" value="male" > <br>
-    Female <input type="radio" name="gender" value="female" > <br>
+    Gender <br> Male <input type="radio" name="gender" value="Male" > <br>
+    Female <input type="radio" name="gender" value="Female" > <br>
     City <select name="city" required>
     <option>Select City</option>
     <option value="Delhi">Delhi</option>
