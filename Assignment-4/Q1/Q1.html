@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Q1</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            background-color: red;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Click to change the color</h2>
+    <div id="div1" onclick="changeColor()"></div>
+    <script>
+        var digits = "012345679abcdef";
+        function randomColorGenerate() {
+            low = 0;
+            high = 15;
+            color = '#';
+            for (i = 0; i < 6; i++) {
+                color = color + digits[low + Math.floor(Math.random() * (high + 1 - low))];
+            }
+            return color;
+        }
+        function changeColor() {
+            ele = document.getElementById('div1');
+            color = randomColorGenerate();
+            ele.style.backgroundColor = color;
+        }
+    </script>
+
+
+</body>
+
+</html>
