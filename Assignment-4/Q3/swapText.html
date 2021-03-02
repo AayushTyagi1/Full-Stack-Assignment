@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>swap</title>
+</head>
+
+<body>
+    <div align="center">
+        <p class="p1">First Paragraph</p><br>
+        <p class="p2">Second Paragraph</p><br>
+        <button onclick="swap()">swap</button>
+    </div>
+    <script type="text/javascript">
+        function swap() {
+            p1 = document.getElementsByClassName('p1')[0];
+            p2 = document.getElementsByClassName('p2')[0];
+            t = p1.textContent;
+            p1.textContent = p2.textContent;
+            p2.textContent = t;
+        }
+    </script>
+</body>
+
+</html>
