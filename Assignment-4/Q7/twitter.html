@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Extraction</title>
+</head>
+
+<body>
+    DATA IS DOWNLOADING...
+    <script type="text/javascript" src="./data.js"></script>
+    <script>
+        JSONToCSVConvertor(data, "twitter_data", true);
+
+        function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+            var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+            var CSV = '';
+
+            if (ShowLabel) {
+                var row = "";
+                row += "tweet_id" + ',';
+                row += "full_text" + ',';
+                row += "language" + ',';
+                row += "user_id" + ',';
+                row += "username" + ',';
+                row += "profile_creation_date" + ',';
+                row += "friends_count" + ',';
+                row += "followers_count" + ',';
+                row += "total_tweet_count" + ',';
+                row += "verified" + ',';
+                row += "location" + ',';
+
+                row = row.slice(0, -1);
+                CSV += row + '\r\n';
+
+                for (var i = 0; i < arrData.length; i++) {
+                    var row = "";
+
+                    for (var index in arrData[i]) {
+                        if (index == 'id' || index == 'full_text')
+                            row += '"' + arrData[i][index] + '",';
+                        if (index == 'user') {
+                            row += '"' + arrData[i][index]["id"] + '",';
+                            row += '"' + arrData[i][index]["name"] + '",';
+                            row += '"' + arrData[i][index]["created_at"] + '",';
+                            row += '"' + arrData[i][index]["friends_count"] + '",';
+                            row += '"' + arrData[i][index]["followers_count"] + '",';
+                            row += '"' + arrData[i][index]["statuses_count"] + '",';
+                            row += '"' + arrData[i][index]["verified"] + '",';
+                            row += '"' + arrData[i][index]["location"] + '",';
+                        }
+                        if (index == 'metadata')
+                            row += '"' + arrData[i][index]["iso_language_code"] + '",';
+                    }
+
+                    row.slice(0, row.length - 1);
+                    CSV += row + '\r\n';
+                }
+                if (CSV == '') {
+                    alert("Invalid data");
+                    return;
+                }
+                var fileName = "";
+                fileName += ReportTitle.replace(/ /g, "_");
+                var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+                var link = document.createElement("a");
+                link.href = uri;
+                link.style = "visibility:hidden";
+                link.download = fileName + ".csv";
+                link.click();
+            }
+        }
+    </script>
+</body>
+
+</html>
