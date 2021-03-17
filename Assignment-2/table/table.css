@@ -20,7 +20,7 @@ tr:nth-child(even) {
   border: 1px solid black;
   border-collapse: collapse;
   border-style: dotted;
-  color: #fc3004;
+  color: red;
 }
 th {
   border: 1px solid black;
