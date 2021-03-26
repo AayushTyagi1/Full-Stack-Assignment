@@ -17,7 +17,7 @@
          <thead>
             <tr>
                <th>ID</th>
-               <th>Name</th>
+               <th>Username</th>
                <th>Email</th>
                <th>Gender</th>
                <th>City</th>
