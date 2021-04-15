@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GUESSING GAME</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 70%;
+        }
+
+        .guessSubmit {
+            border: 3px solid cyan;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NUMBER GUESSING GAME</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you
+        if your guess was too high or too low.</p>
+
+    <div class="form">
+        <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+        <input type="submit" class="guessSubmit" id="guessSubmit">
+    </div>
+
+    <div class="result" id="result">
+        <p class="guess" id="guess"></p>
+        <p class="stop" id="stop"></p>
+        <p class="lowhigh" id="lowhigh"></p>
+    </div>
+
+    <script>
+        var y = Math.floor(Math.random() * 100) + 1;
+        var guess = 1;
+        pastGuess = [];
+
+        function myfun() {
+            location.reload();
+            document.getElementById('guessSubmit').value = '';
+        }
+
+        document.getElementById("guessSubmit").onclick = function () {
+            var x = document.getElementById("guessField").value;
+            pastGuess.unshift(x);
+
+            document.getElementById("guess").innerHTML = "Previous Guesses: " + pastGuess.join(" ");
+
+            if (x == y) {
+                document.getElementById("stop").style.backgroundColor = "green";
+                document.getElementById("stop").innerHTML = "Congratulations! You got it right!";
+                document.getElementById("guessSubmit").disabled = true;
+
+                var x = document.getElementById("lowhigh");
+                if (x.childNodes.length == 1)
+                    x.removeChild(x.firstChild);
+
+                var btn = document.createElement("BUTTON");
+                btn.innerHTML = "Start new game";
+                btn.id = "Reset";
+                x.appendChild(btn);
+
+                document.getElementById("Reset").addEventListener("click", myfun);
+            }
+            else if (guess < 10) {
+                guess++;
+                document.getElementById("stop").style.backgroundColor = "red";
+                document.getElementById("stop").innerHTML = "Wrong!";
+
+                if (x > y)
+                    document.getElementById("lowhigh").innerHTML = "Last guess was too high!";
+                else
+                    document.getElementById("lowhigh").innerHTML = "Last guess was too low!";
+            }
+            else if (guess >= 10 && (x > y || x < y)) {
+                document.getElementById("stop").style.backgroundColor = "red";
+                document.getElementById("stop").innerHTML = "Game Over!";
+                document.getElementById("guessSubmit").disabled = true;
+
+                var x = document.getElementById("lowhigh");
+                if (x.childNodes.length == 1)
+                    x.removeChild(x.firstChild);
+
+                var btn = document.createElement("BUTTON");
+                btn.innerHTML = "Start new game";
+                btn.id = "Reset";
+                x.appendChild(btn);
+
+                document.getElementById("Reset").addEventListener("click", myfun);
+            }
+        }
+    </script>
+</body>
+
+</html>
